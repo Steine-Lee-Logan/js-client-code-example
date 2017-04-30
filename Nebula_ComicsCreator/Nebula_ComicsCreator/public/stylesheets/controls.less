@@ -1,0 +1,70 @@
+﻿/*
+    ModalWindow color constants begin
+*/
+@COLORS_CLOSE_BTN_BG: red;
+@COLORS_CLOSE_BTN_BG_HOVER: darkred;
+@COLORS_OVERLAY_BG: black;
+@COLORS_MODAL_WINDOW_BG: white;
+@COLORS_OVERLAY_BG: black;
+/*
+    ModalWindow color constants end
+*/
+
+/*
+    controls styles begin
+*/
+.full-screen {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.control {
+    /*
+        ModalWindow begin
+    */
+    &.global-overlay {
+        .full-screen;
+        display: none;
+        z-index: 1;
+
+        .transparent-bg {
+            .full-screen;
+            background-color: @COLORS_OVERLAY_BG;
+            opacity: 0.7;
+        }
+
+        .content-wrapper {
+            opacity: 0;
+            padding: 20px;
+            background-color: @COLORS_MODAL_WINDOW_BG;
+            position: absolute;
+
+            .title-block {
+                font-size: 18px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .close-btn {
+                display: block;
+                position: absolute;
+                top: -20px;
+                right: -20px;
+                width: 20px;
+                height: 20px;
+                background-color: @COLORS_CLOSE_BTN_BG;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: @COLORS_CLOSE_BTN_BG_HOVER;
+                }
+            }
+        }
+    }
+    /*
+        ModalWindow end
+    */
+}

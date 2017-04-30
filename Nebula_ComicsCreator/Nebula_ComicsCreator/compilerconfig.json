@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "public/stylesheets/common.css",
+    "inputFile": "public/stylesheets/common.less"
+  },
+  {
+    "outputFile": "public/stylesheets/controls.css",
+    "inputFile": "public/stylesheets/controls.less"
+  }
+]

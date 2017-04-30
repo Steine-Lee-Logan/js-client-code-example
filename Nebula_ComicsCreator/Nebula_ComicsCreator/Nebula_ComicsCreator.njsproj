@@ -32,6 +32,15 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="public\javascripts\client_app.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="public\javascripts\controls.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="public\javascripts\jquery-3.2.1.js">
+      <SubType>Code</SubType>
+    </Compile>
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="routes\index.ts" />
     <TypeScriptCompile Include="routes\user.ts" />
@@ -41,8 +50,28 @@
     <TypeScriptCompile Include="typings\globals\mime\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\serve-static\index.d.ts" />
     <Compile Include="bin\www" />
+    <None Include="compilerconfig.json" />
+    <Content Include="compilerconfig.json.defaults">
+      <SubType>Content</SubType>
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </Content>
     <Content Include="package.json" />
-    <Content Include="public\stylesheets\main.css" />
+    <Content Include="public\stylesheets\common.css">
+      <SubType>Content</SubType>
+      <DependentUpon>public\stylesheets\common.less</DependentUpon>
+    </Content>
+    <Content Include="public\stylesheets\common.less">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\stylesheets\common.min.css" />
+    <Content Include="public\stylesheets\controls.css" />
+    <Content Include="public\stylesheets\controls.less">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\stylesheets\controls.min.css">
+      <SubType>Content</SubType>
+      <DependentUpon>public\stylesheets\controls.css</DependentUpon>
+    </Content>
     <Content Include="README.md" />
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
