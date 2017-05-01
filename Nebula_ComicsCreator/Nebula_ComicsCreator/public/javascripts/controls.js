@@ -5,12 +5,14 @@ class Control {
     }
 
     renderer($tpl) {
-        let $target = $(this.settings.target || "body");
+        let $target = $(this.settings.renderTarget || "body");
         $tpl.addClass("control");
 
         if (this.settings.clazz) {
             $tpl.addClass(this.settings.clazz);
         }
+
+        console.log($tpl);
 
         $target.append($tpl);
     }
@@ -100,5 +102,18 @@ class ModalWindow extends Control {
         if (this.settings.beforeHide && this.settings.beforeHide instanceof Function && !silent) { this.settings.beforeHide.apply(); }
         this.$tpl.filter('.global-overlay').hide();
         if (this.settings.afterHide && this.settings.afterHide instanceof Function && !silent) { this.settings.afterHide.apply(); }
+    }
+}
+
+/*
+ an example of the LinedPaper control initialization
+ */
+class LinedPaper extends Control {
+    constructor(settings) {
+        super(settings);
+        const control = this;
+
+        this.$tpl = $('<div class="grid"></div>');
+        this.renderer(this.$tpl);
     }
 }

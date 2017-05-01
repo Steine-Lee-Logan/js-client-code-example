@@ -1,7 +1,7 @@
 ﻿class App {
     constructor(settings) {
-        this.settings = settings;
-        this.$tpl = $('<canvas id="root"/>').width(window.innerWidth).height(window.innerHeight);
+        const app = this;
+        this.$tpl = $('<div class="workSpace"></div >');
 
         this.init();
     }
@@ -14,8 +14,8 @@
 
     init() {
         this.renderer();
-
-        var uiModalInitWorkspace = new ModalWindow({
+        
+        let uiModalInitWorkspace = new ModalWindow({
             title: 'Initialize your workspace',
             mainContentHTML: "<p>some text <span>with</span> HTML tags</p>",
             beforeShow: function () { }, //your callback here
@@ -24,10 +24,12 @@
             afterHide: function () { } //your callback here
         });
 
+        let uiLinedPaper = new LinedPaper({ renderTarget: '.workSpace'}); 
+
         uiModalInitWorkspace.showModalWindow();
     }
 }
 
 $(function () {
-    var myApp = new App({});
+    let myApp = new App({});
 });
