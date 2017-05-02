@@ -24,9 +24,30 @@
             afterHide: function () { } //your callback here
         });
 
-        let uiLinedPaper = new LinedPaper({ renderTarget: '.workSpace'}); 
+        let uiLinedPaper = new LinedPaper({ renderTarget: '.workSpace' }); 
 
-        uiModalInitWorkspace.showModalWindow();
+        var uiSwitcher = new Switcher({
+            renderTarget: '.workSpace',
+            showTooltip: false,
+            nodesList: {
+                on: {
+                    id: 'on',
+                    value: 1,
+                    text: 'on',
+                    onActive: function () { uiLinedPaper.showGrid(); },
+                    onDisactive: function () { } 
+                },
+                off: {
+                    id: 'off',
+                    value: 0,
+                    text: 'off',
+                    onActive: function () { uiLinedPaper.hideGrid(); },
+                    onDisactive: function () { } 
+                }
+            }
+        });
+
+        //uiModalInitWorkspace.showModalWindow();
     }
 }
 
