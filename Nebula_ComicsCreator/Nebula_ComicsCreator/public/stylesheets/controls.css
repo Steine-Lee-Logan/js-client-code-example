@@ -124,6 +124,13 @@
 .control.panel.right {
   right: 0;
 }
+.control.panel .draggable-area {
+  display: block;
+  height: 15px;
+  width: 100%;
+  cursor: move;
+  background-color: black;
+}
 .control.panel .panel-element {
   display: block;
   float: left;

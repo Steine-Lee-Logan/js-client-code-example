@@ -118,13 +118,13 @@
                 },
                 {
                     id: 'polygon-type-3',
-                    type: 'small',
+                    type: 'big',
                     onClick: function () {
                         console.log(this);
                     },
                     image: 'url',
                     status: 'active'
-                },
+                }
             ]
         });
 
