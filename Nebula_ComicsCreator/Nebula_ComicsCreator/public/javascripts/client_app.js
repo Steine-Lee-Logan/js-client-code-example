@@ -47,6 +47,87 @@
             }
         });
 
+        var uiToolsPanel = new Panel({
+            renderTarget: '.workSpace',
+            clazz: 'tools-panel',
+            type: 'draggable',
+            position: ['top', 'right'],
+            elements: [
+                {
+                    id: 'square',
+                    type: 'small',
+                    onClick: function () {
+                        console.log(this);
+                    },
+                    image: 'url',
+                    status: 'active'
+                },
+                {
+                    id: 'triangle',
+                    type: 'small',
+                    onClick: function () {
+                        console.log(this);
+                    },
+                    image: 'url',
+                    status: 'active'
+                },
+                {
+                    id: 'circle',
+                    type: 'medium',
+                    onClick: function () {
+                        console.log(this);
+                    },
+                    image: 'url',
+                    status: 'active'
+                },
+                {
+                    id: 'rhombus',
+                    type: "big",
+                    onClick: function () {
+                        console.log(this);
+                    },
+                    image: 'url',
+                    status: 'active'
+                },
+                {
+                    id: 'parallelogram',
+                    type: 'medium',
+                    onClick: function () {
+                        console.log(this);
+                    },
+                    image: 'url',
+                    status: 'active'
+                }, 
+                {
+                    id: 'polygon-type-1',
+                    type: 'small',
+                    onClick: function () {
+                        console.log(this);
+                    },
+                    image: 'url',
+                    status: 'active'
+                },
+                {
+                    id: 'polygon-type-2',
+                    type: 'small',
+                    onClick: function () {
+                        console.log(this);
+                    },
+                    image: 'url',
+                    status: 'active'
+                },
+                {
+                    id: 'polygon-type-3',
+                    type: 'small',
+                    onClick: function () {
+                        console.log(this);
+                    },
+                    image: 'url',
+                    status: 'active'
+                },
+            ]
+        });
+
         //uiModalInitWorkspace.showModalWindow();
     }
 }

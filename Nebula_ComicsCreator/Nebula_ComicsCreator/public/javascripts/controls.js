@@ -175,8 +175,6 @@ class Switcher extends Control {
             if (callbacks.has($(this).attr('id') + '_onActive')) {
                 callbacks.get($(this).attr('id') + '_onActive').apply();    
             }
-
-            console.log(this);
         });
 
         this.renderer(this.$tpl);
@@ -185,4 +183,64 @@ class Switcher extends Control {
     /*inner tools begin*/
 
     /*inner tools end*/
+}
+
+/*
+ an example of the Panel control initialization
+ type: draggable/pinned
+ position: top/left/bottom/right/{top:px, left:px}
+ elemetns: {id, type (small/medium/big), onClick, image, status (active/inactive)}
+*/
+class Panel extends Control {
+    constructor(settings) {
+        super(settings);
+
+        var control = this;
+
+        this.$tpl = $(
+            '<div class="panel">' +
+            (this.settings.type === 'draggable' ? '<span class="draggable-area"></span>' : '') +  
+            '</div>'
+        );
+
+        if (this.settings.position) {
+            for (let i = 0; i < this.settings.position.length; i++) {
+                this.$tpl.addClass(this.settings.position[i]);       
+            }
+
+        }
+
+        var len = this.settings.elements.length;
+
+        $.each(this.settings.elements, function (index) {
+            try {
+                if (!this.id) {
+                    throw "ERROR: id is requared";
+                }
+
+                let $element = $('<span id="' + this.id + '" class="panel-element" style="background-image: url(' + this.image + ')"></span>');
+
+                if (typeof this.type) {
+                        $element.addClass(this.type);
+                }
+
+                if (typeof this.status) {
+                    $element.addClass(this.status);
+                }
+
+                if (index == len - 1) {
+                    $element.attr('style', 'margin-bottom: 5px;');
+                }
+
+                control.$tpl.append($element);
+
+            } catch (err) {
+                console.log(err);
+                return false;
+            }            
+        });
+
+
+        this.renderer(this.$tpl);
+    }
 }
