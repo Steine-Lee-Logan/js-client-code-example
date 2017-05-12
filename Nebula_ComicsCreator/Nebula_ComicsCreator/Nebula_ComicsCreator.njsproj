@@ -38,6 +38,9 @@
     <Compile Include="public\javascripts\controls.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="public\javascripts\Ingram_client_API.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="public\javascripts\jquery-3.2.1.js">
       <SubType>Code</SubType>
     </Compile>
@@ -47,6 +50,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="routes\user.ts" />
+    <TypeScriptCompile Include="Scripts\common\ingram_API.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
     <TypeScriptCompile Include="typings\globals\express\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\express-serve-static-core\index.d.ts" />
@@ -93,6 +99,7 @@
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Scripts\common\" />
     <Folder Include="Scripts\typings\" />
     <Folder Include="Scripts\typings\node\" />
     <Folder Include="typings\" />

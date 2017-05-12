@@ -6,13 +6,25 @@ var index_1 = require("./routes/index");
 var user_1 = require("./routes/user");
 var ingram_1 = require("./routes/ingram");
 var app = express();
+var bodyParser = require('body-parser');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use('/', index_1.default);
 app.use('/users', user_1.default);
 app.use('/ingram', ingram_1.default);
+app.post('/ingram/test_api', function (req, res) {
+    console.log('headers: ' + JSON.stringify(req.headers));
+    console.log('body: ' + JSON.stringify(req.body));
+    var retData = {
+        headers: req.headers,
+        body: req.body
+    };
+    res.send(retData);
+});
 app.get('*', function (req, res) {
     res.sendStatus(404);
 });
