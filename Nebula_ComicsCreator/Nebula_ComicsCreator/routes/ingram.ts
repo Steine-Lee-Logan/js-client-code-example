@@ -4,10 +4,15 @@
 import express = require('express');
 const router = express.Router();
 
-router.get('/ingram', (req: express.Request, res: express.Response) => {
-    res.render('ingram', { title: 'Ingram API test' }, function (err, html) {
-        console.log(err);
+router.get('/', (req: express.Request, res: express.Response) => {
+    res.render('ingram', { title: 'Ingram API test' }, (err, html) => {
         console.log('Ingram API test page');
+
+        if (!err) {
+            res.send(html);
+        } else {
+            console.log(err);
+        }
     });
 });
 
