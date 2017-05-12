@@ -14,7 +14,7 @@ app.use('/', index_1.default);
 app.use('/users', user_1.default);
 app.use('/ingram', ingram_1.default);
 app.get('*', function (req, res) {
-    res.send(404);
+    res.sendStatus(404);
 });
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
