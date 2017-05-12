@@ -17,6 +17,10 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/ingram', ingram);
 
+app.get('*', function (req, res) {
+    res.send(404);
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
