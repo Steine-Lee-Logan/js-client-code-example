@@ -43,6 +43,9 @@
     </Compile>
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="routes\index.ts" />
+    <TypeScriptCompile Include="routes\ingram.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="routes\user.ts" />
     <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
     <TypeScriptCompile Include="typings\globals\express\index.d.ts" />
@@ -73,7 +76,13 @@
       <DependentUpon>public\stylesheets\controls.css</DependentUpon>
     </Content>
     <Content Include="README.md" />
+    <Content Include="views\error.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\index.pug" />
+    <Content Include="views\ingram.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\layout.pug" />
   </ItemGroup>
   <ItemGroup>

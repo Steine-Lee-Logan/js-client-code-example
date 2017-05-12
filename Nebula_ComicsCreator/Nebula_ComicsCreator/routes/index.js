@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /*
  * GET home page.
  */
@@ -7,6 +8,5 @@ var router = express.Router();
 router.get('/', function (req, res) {
     res.render('index', { title: 'Comics Creator' });
 });
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = router;
 //# sourceMappingURL=index.js.map

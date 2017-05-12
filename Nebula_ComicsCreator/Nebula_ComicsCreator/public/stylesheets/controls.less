@@ -6,6 +6,15 @@
 @COLORS_OVERLAY_BG: black;
 /*ModalWindow color constants end*/
 
+/*Panel size constants begin*/
+@SIZE_SMALL_WIDTH: 40px;
+@SIZE_SMALL_HEIGHT: 40px;
+@SIZE_MEDIUM_WIDTH: 85px;
+@SIZE_MEDIUM_HEIGHT: 40px;
+@SIZE_BIG_WIDTH: 85px;
+@SIZE_BIG_HEIGHT: 85px;
+/*Panel size constants end*/
+
 /*controls styles begin*/
 .full-screen {
     position: fixed;
@@ -149,18 +158,18 @@
             cursor: pointer;
 
             &.small {
-                width: 40px;
-                height: 40px;
+                width: @SIZE_SMALL_WIDTH;
+                height: @SIZE_SMALL_HEIGHT;
             }
 
             &.medium {
-                width: 85px;
-                height: 40px;
+                width: @SIZE_MEDIUM_WIDTH;
+                height: @SIZE_MEDIUM_HEIGHT;
             }
 
             &.big {
-                width: 85px;
-                height: 85px;
+                width: @SIZE_BIG_WIDTH;
+                height: @SIZE_BIG_HEIGHT;
             }
         }
     }
