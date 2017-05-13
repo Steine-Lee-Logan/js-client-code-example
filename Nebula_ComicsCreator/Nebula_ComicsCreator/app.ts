@@ -7,6 +7,8 @@ import ingram from './routes/ingram';
 
 var app = express();
 var bodyParser = require('body-parser');
+var soap = require('soap');
+var apiWSDL = 'https://cws.ingrambook.com/CWS/companion.asmx?wsdl'; 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,15 +23,44 @@ app.use('/users', users);
 app.use('/ingram', ingram);
 
 app.post('/ingram/test_api', (req, res) => {
-    console.log('headers: ' + JSON.stringify(req.headers));
-    console.log('body: ' + JSON.stringify(req.body));
+    //console.log('headers: ' + JSON.stringify(req.headers));
+    //console.log('body: ' + JSON.stringify(req.body));
 
-    let retData: any = {
+    let retData:any = {
         headers: req.headers,
-        body: req.body
+        body: req.body,
+        error: ''
     }; 
 
-    res.send(retData);
+    soap.createClient(apiWSDL, function (err, client) {
+        if (err) {
+            console.log(err);
+            //throw new Error(err);
+        }
+
+        //let soapHeaders: string = '<com:UserInfo><com:UserName>p0Z_251</com:UserName></com:UserInfo>';
+        let soapHeaders: any = { 'UserInfo': { 'UserName': 'p0Z_251' } };
+
+        client.addSoapHeader(soapHeaders);
+
+        console.log(client.soapHeaders);
+
+        var args = {
+            queryType: 1,
+            query: 'kw=book'
+        };
+
+        client.SearchRequestEnhanced(args, function (err, result) {
+            if (err) {
+                //throw new Error(err);
+                console.log(err);
+            }
+
+
+            //res.send(retData);
+            console.log(result);
+        });
+    });
 });
 
 app.get('*', function (req, res) {
